@@ -1,0 +1,212 @@
+{
+  "id": "session-2",
+  "title": "Phandalin",
+  "type": "campaign-session",
+  "description": "The party arrives in Phandalin and discovers a town living under the shadow of the Redbrands — and the hand of the Spider reaches further than they knew.",
+  "starting_scene": "s2_scene_001",
+  "scenes": {
+    "s2_scene_001": {
+      "title": "Arrival in Phandalin",
+      "narrative": "The wagon rolls into Phandalin as dusk settles over the frontier town. It's a modest place — a few dozen stone buildings, muddy lanes, a market square gone quiet for the evening. But something feels wrong. Shutters are closed though it isn't late. People don't linger. A group of four men in red cloaks lounge in front of the local tavern, the Stonehill Inn, passing a bottle and eyeing newcomers with cold amusement. Sildar, walking stiffly beside you, mutters: 'The Redbrands. They've gotten bold.'",
+      "dm_note": "The Redbrands are the bandit gang that has taken over Phandalin. They answer to the Spider. Players should feel the tension of the town immediately. Key locations: Stonehill Inn (friendly), Barthen's Provisions (quest delivery), Lionshield Coster (stolen goods), Town Master's Hall (spineless official), Sleeping Giant taproom (Redbrand hangout).",
+      "suggested_actions": [
+        { "label": "Deliver the provisions to Barthen's and ask around", "requires_roll": false, "next_scene": "s2_scene_002" },
+        { "label": "Confront the Redbrands loitering outside the inn", "requires_roll": false, "next_scene": "s2_scene_001b" },
+        { "label": "Go to the Stonehill Inn and listen for information", "requires_roll": false, "next_scene": "s2_scene_001c" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_001b": {
+      "title": "The Redbrands",
+      "narrative": "The four Redbrands notice you approaching and straighten up slowly, hands drifting toward their weapons. Their leader — a heavyset man with a scar across his chin — grins without warmth. 'New blood in town. You lookin' for trouble, or just too dumb to walk the other way?'",
+      "dm_note": "The Redbrands are bullies who will back down if firmly confronted in public (DC 14 Intimidation) or start a brawl. Defeating them publicly earns the respect of the townspeople. They have keys to the Redbrand hideout on them.",
+      "suggested_actions": [
+        { "label": "Intimidate them into backing down publicly", "check": "Intimidation", "dc": 14, "success_scene": "s2_scene_001d", "failure_scene": "s2_scene_001e", "success_bonus": "The leader's grin fades. He looks at his companions — none of them are volunteering. 'Smart move, stranger,' he mutters, and the group slinks away. The townspeople who saw it stand a little straighter." },
+        { "label": "Fight the Redbrands in the street", "check": "Attack", "dc": 13, "success_scene": "s2_scene_001d", "failure_scene": "s2_scene_001e", "success_bonus": "The fight is short and decisive. The Redbrands scatter, leaving two unconscious in the mud. Someone in the crowd starts to clap." }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_001c": {
+      "title": "The Stonehill Inn",
+      "narrative": "The Stonehill Inn is warm and smells of woodsmoke and roasted meat. Toblen Stonehill, the innkeeper — a round-faced, nervous man — brightens when you enter. 'Travelers! Real travelers, not those Redbrand thugs.' He lowers his voice. 'Things have been... difficult lately. They showed up two months ago, started shaking down merchants, roughing up anyone who objects. The Town Master does nothing.' He refills your cups without being asked. 'If someone were to deal with them... the whole town would be grateful.'",
+      "dm_note": "Toblen is a friendly source of information. He can tell players: the Redbrands are based at Tresendar Manor east of town, they answer to someone called the Spider, a halfling woman named Qelline Alderleaf in town may know more (her boy Carp claims to have found a secret tunnel into the manor).",
+      "suggested_actions": [
+        { "label": "Ask Toblen about the Spider", "requires_roll": false, "next_scene": "s2_scene_002" },
+        { "label": "Find Qelline Alderleaf and talk to her son Carp", "requires_roll": false, "next_scene": "s2_scene_003" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_001d": {
+      "title": "Town's Gratitude",
+      "narrative": "Word spreads fast in a small town. By the time you reach the Stonehill Inn, Toblen is already holding the door open. 'I saw what you did,' he says quietly, pressing a key into your hand. 'Harbin Wester at the Town Master's Hall has been too frightened to act. But maybe you're not. That key — found it on a Redbrand weeks ago. Fits a door at Tresendar Manor, I think.' He meets your eyes. 'Please. Help us.'",
+      "dm_note": "Players gain a key to the Redbrand hideout and increased trust with townsfolk. They can now gather information more freely.",
+      "suggested_actions": [
+        { "label": "Head to Tresendar Manor to confront the Redbrands at their base", "requires_roll": false, "next_scene": "s2_scene_004" },
+        { "label": "Gather more information first", "requires_roll": false, "next_scene": "s2_scene_003" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_001e": {
+      "title": "A Street Brawl Gone Wrong",
+      "narrative": "The Redbrands are more organized than they look. They fight dirty — elbows, boots, and a sap from behind. You hold your own but take a beating before they break off, laughing. 'Come find us at the manor, heroes,' the leader calls back. 'We'll be ready.'",
+      "dm_note": "Party takes 1d6 each. Redbrands are now alerted that skilled adventurers are in town — the hideout will have more guards. Players should rest and gather info before proceeding.",
+      "suggested_actions": [
+        { "label": "Rest and gather information before the next move", "requires_roll": false, "next_scene": "s2_scene_002" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_002": {
+      "title": "Barthen's Provisions",
+      "narrative": "Elmar Barthen is a lean, weathered man who lights up when he sees the provisions wagon. 'Finally! I was starting to worry.' He frowns. 'But where's Gundren? He was supposed to arrive ahead of you.' When you tell him what happened, his face goes pale. 'Captured? By the Spider? Oh no.' He grips the counter. 'Gundren sent me a letter last month — he'd found Wave Echo Cave. The old Phandelver Mine. If he had the map on him when he was taken...' He doesn't finish the sentence. He doesn't have to.",
+      "dm_note": "Barthen can pay the party 10gp for delivering the provisions (as agreed). He also knows: Gundren has two brothers, Nundro and Tharden, who were already at Wave Echo Cave prospecting when Gundren was captured. No one has heard from them either.",
+      "suggested_actions": [
+        { "label": "Ask Barthen what he knows about the Spider", "requires_roll": false, "next_scene": "s2_scene_003" },
+        { "label": "Ask about the Redbrand hideout", "requires_roll": false, "next_scene": "s2_scene_003" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_003": {
+      "title": "Carp's Secret",
+      "narrative": "Qelline Alderleaf, a cheerful halfling farmer, greets you warmly and calls for her son. Carp is ten years old, wide-eyed, and practically vibrating with excitement. 'I found it!' he announces. 'A secret tunnel! I was playing in the woods east of town near the old manor and there was this big rock and behind it — a passage! I heard scary voices inside so I ran but—' He tugs your sleeve. 'You're adventurers, right? You could go in that way. They'd never see you coming.'",
+      "dm_note": "Carp's tunnel is real — it leads into the Redbrand hideout (Tresendar Manor's underground). This gives players a way to enter without alerting the guards at the main entrance. The tunnel emerges in the eastern section of the hideout, bypassing the first guard room.",
+      "suggested_actions": [
+        { "label": "Have Carp show you where the tunnel is", "requires_roll": false, "next_scene": "s2_scene_004b" },
+        { "label": "Head to Tresendar Manor through the front", "requires_roll": false, "next_scene": "s2_scene_004" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_004": {
+      "title": "Tresendar Manor — Front Approach",
+      "narrative": "Tresendar Manor sits on a low hill east of Phandalin, its old stone walls draped in ivy, its windows dark. The front door hangs open. Two Redbrands sit on the steps, cards in hand, clearly expecting no trouble. Behind the manor, you can see the ruins of an old estate — and what might be an entrance to something beneath.",
+      "dm_note": "Front approach means dealing with 2 Redbrand guards, then 4 more inside the entrance hall. The Redbrands know the party is in town — adjust readiness based on earlier events. Main goal: find Glasstaff (the Spider's agent) in his study, rescue any prisoners, and learn where Gundren is being held.",
+      "suggested_actions": [
+        { "label": "Sneak past the guards", "check": "Stealth", "dc": 13, "success_scene": "s2_scene_005", "failure_scene": "s2_scene_004c", "success_bonus": "You slip past the lounging guards and into the manor's shadowed entrance hall." },
+        { "label": "Overpower the guards before they can raise the alarm", "check": "Attack", "dc": 13, "success_scene": "s2_scene_005", "failure_scene": "s2_scene_004c", "success_bonus": "The guards are dealt with swiftly and quietly. The manor entrance is yours." }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_004b": {
+      "title": "The Secret Tunnel",
+      "narrative": "Carp leads you to a mossy boulder at the treeline east of the manor. Behind it, a narrow tunnel descends steeply — damp earth walls, the smell of old stone below. Goblin-sized at first, then widening. The boy grins. 'Be careful!' he whispers, and runs home. You crouch and descend into the dark.",
+      "dm_note": "The tunnel bypasses the entrance guards entirely. Players emerge in the eastern part of the Redbrand hideout — near the cistern room. They'll avoid the first two guards but may encounter Redbrands patrolling deeper inside.",
+      "suggested_actions": [
+        { "label": "Move carefully through the tunnel", "check": "Stealth", "dc": 10, "success_scene": "s2_scene_005_east", "failure_scene": "s2_scene_005", "success_bonus": "You emerge in a stone-walled chamber without a sound. You're inside the hideout — and no one knows it." }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_004c": {
+      "title": "The Alarm is Raised",
+      "narrative": "One of the guards gets a shout out before you silence them. From inside the manor, footsteps and shouts echo. The Redbrands know you're here.",
+      "dm_note": "Alert state: 4 additional Redbrands from inside will arrive in 2 rounds. Fight through them or retreat and try a different approach.",
+      "suggested_actions": [
+        { "label": "Fight through the reinforcements", "check": "Attack", "dc": 13, "success_scene": "s2_scene_005", "failure_scene": "s2_scene_004c", "success_bonus": "After a brutal entrance fight, the hallway is clear. You push deeper into the hideout." }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_005": {
+      "title": "Inside the Hideout",
+      "narrative": "The manor's underground complex is well-established — stone corridors, torches in iron brackets, the smell of unwashed men and old wine. You pass a door behind which something heavy breathes. A storeroom holds stolen goods — crates marked with merchant names from town. And ahead, lamplight seeps under a door, accompanied by the sound of someone writing. A leader's quarters.",
+      "dm_note": "Players are approaching Glasstaff's study. He's the Spider's agent — a wizard named Iarno Albrek, formerly of the Lords' Alliance (which will shock Sildar if he's with the party). Glasstaff will try to flee via a secret door if he hears fighting. The prisoners (three townsfolk) are in a cell to the east.",
+      "suggested_actions": [
+        { "label": "Burst into the lit room and confront whoever is inside", "requires_roll": false, "next_scene": "s2_scene_006" },
+        { "label": "Listen at the door first", "check": "Perception", "dc": 12, "success_scene": "s2_scene_005b", "failure_scene": "s2_scene_006", "success_bonus": "Through the door you hear a single person — scratching of quill on parchment, occasional muttering. One target, probably unaware." },
+        { "label": "Search for prisoners before confronting the leader", "requires_roll": false, "next_scene": "s2_scene_005c" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_005_east": {
+      "title": "The Cistern Room",
+      "narrative": "You emerge in a wide chamber dominated by a large cistern of still water. Barrels of provisions line the walls. A passage leads north — toward light and voices. A passage leads west — toward what sounds like sobbing.",
+      "dm_note": "Two directions: north leads toward Glasstaff's study (via guard room), west leads toward the prisoner cells. The east approach gives players more choices.",
+      "suggested_actions": [
+        { "label": "Follow the voices west — find the prisoners", "requires_roll": false, "next_scene": "s2_scene_005c" },
+        { "label": "Head north toward the lamp light", "requires_roll": false, "next_scene": "s2_scene_005" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_005b": {
+      "title": "Before the Confrontation",
+      "narrative": "One person. Working alone. Possibly unaware of your presence. You could burst in with the element of surprise — or try something subtler.",
+      "dm_note": "If players surprise Glasstaff, he doesn't get his first turn to flee. Give players the option of a careful approach.",
+      "suggested_actions": [
+        { "label": "Kick the door open — surprise attack!", "check": "Attack", "dc": 12, "success_scene": "s2_scene_006_captured", "failure_scene": "s2_scene_006", "success_bonus": "You catch the wizard completely off guard. He scrambles back from his desk, quill still in hand, nowhere near his staff." },
+        { "label": "Open the door calmly and demand surrender", "check": "Intimidation", "dc": 13, "success_scene": "s2_scene_006_captured", "failure_scene": "s2_scene_006", "success_bonus": "The wizard freezes, assesses you for a long moment — and raises his hands. He's calculating, not brave." }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_005c": {
+      "title": "The Prisoners",
+      "narrative": "Three townspeople — a young woman and two older men — are locked in a stone cell. They look up with hollow eyes. 'Please,' the woman whispers. 'We haven't done anything. The one they call Glasstaff had us taken because we asked too many questions.' She grasps the bars. 'There's a wizard. Down the hall. He has orders — letters — from someone called the Spider. Get those letters and you'll know everything.'",
+      "dm_note": "The prisoners confirm Glasstaff's location and the letters. They can be freed with DC 10 Thieves' Tools or the key from the Redbrands. They also know: Glasstaff has a secret door in his study that connects to a passage out of the manor.",
+      "suggested_actions": [
+        { "label": "Free the prisoners and head for Glasstaff's study", "check": "Athletics", "dc": 12, "success_scene": "s2_scene_006", "failure_scene": "s2_scene_005d", "success_bonus": "The cell door swings open. The prisoners flee toward the tunnel exit while you turn toward the wizard's study." }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_005d": {
+      "title": "Struggling with the Lock",
+      "narrative": "The lock is better than expected — heavy iron, recently oiled. The prisoners watch with desperate eyes as you work.",
+      "dm_note": "Someone with Thieves' Tools gets another try (DC 10), or they can try to break the door (DC 16 Athletics). The noise may alert nearby Redbrands.",
+      "suggested_actions": [
+        { "label": "Keep working on the lock", "check": "Investigation", "dc": 10, "success_scene": "s2_scene_006", "failure_scene": "s2_scene_006", "success_bonus": "The mechanism clicks. The door swings open." },
+        { "label": "Break the door", "check": "Athletics", "dc": 16, "success_scene": "s2_scene_006", "failure_scene": "s2_scene_006", "success_bonus": "With a tremendous heave, the door tears free of its hinges." }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_006": {
+      "title": "Glasstaff's Study",
+      "narrative": "The room is a wizard's study — shelves of components, a table covered in correspondence, a staff of glass leaning against the wall. A man in black robes wheels around as you enter — narrow face, dark eyes, the look of someone who has been comfortable with authority for too long. 'Adventurers,' he says, voice utterly calm. 'I don't suppose this is a social call.' He takes a step toward the staff.",
+      "dm_note": "Glasstaff (Iarno Albrek): AC 11, HP 22, wizard spells. He'll grab his staff and fight if threatened, but would rather talk or flee. If reduced to 8 HP he attempts to flee through the secret door (DC 15 Perception to spot it). The letters on his desk reveal the Spider's identity — Nezznar, a drow elf — and that Gundren is at Cragmaw Castle.",
+      "suggested_actions": [
+        { "label": "Attack Glasstaff before he reaches his staff", "check": "Attack", "dc": 11, "success_scene": "s2_scene_006_captured", "failure_scene": "s2_scene_006b", "success_bonus": "You intercept him before he can arm himself. He goes down quickly, hands raised. 'Alright. Alright!'" },
+        { "label": "Demand he surrender and reveal the Spider's plans", "check": "Intimidation", "dc": 14, "success_scene": "s2_scene_006_captured", "failure_scene": "s2_scene_006b", "success_bonus": "Something in your eyes convinces him the math doesn't add up. He lowers his hands slowly. 'The Spider won't be pleased. But I value my life more than his approval.'" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_006_captured": {
+      "title": "Glasstaff Captured",
+      "narrative": "With Glasstaff subdued, you search his desk. The letters are damning: detailed instructions from Nezznar — the Spider, a drow elf — ordering the capture of Gundren Rockseeker and the seizure of his map to Wave Echo Cave. A second letter gives the location of Cragmaw Castle, where Gundren is being held. A third letter orders the elimination of anyone asking about the Rockseeker brothers. Sildar, if present, goes pale when he reads Glasstaff's name in the letters. 'Iarno,' he says quietly. 'We trained together. I'm the one who recommended him for this post.'",
+      "dm_note": "Great moment. Players now know who the Spider is (Nezznar the drow), where Gundren is (Cragmaw Castle), and that Wave Echo Cave is the true prize. Glasstaff can be handed over to Sildar for justice, or questioned further. End of session approaching.",
+      "suggested_actions": [
+        { "label": "Hand Glasstaff to Sildar and plan the next move", "requires_roll": false, "next_scene": "s2_scene_007" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_006b": {
+      "title": "The Wizard Fights",
+      "narrative": "Glasstaff grabs his staff and a bolt of force erupts from it — one of your party is thrown into the bookshelf, which collapses in a shower of components. He's better than he looks.",
+      "dm_note": "Glasstaff uses Magic Missile (3d4+3 force damage split among targets) or Thunderwave (2d8 thunder, DC 13 Con save or pushed 10 feet). After taking 14+ damage, he tries to flee via the secret door. Players can spot the door with DC 15 Perception.",
+      "suggested_actions": [
+        { "label": "Press the attack — don't let him flee", "check": "Attack", "dc": 11, "success_scene": "s2_scene_006_captured", "failure_scene": "s2_scene_006c", "success_bonus": "You overwhelm him before he can reach the secret door. He collapses, staff clattering across the stone floor." },
+        { "label": "Look for a way to cut off his escape", "check": "Perception", "dc": 15, "success_scene": "s2_scene_006_captured", "failure_scene": "s2_scene_006c", "success_bonus": "You spot it — a door concealed in the bookshelf, slightly ajar. You block it just as Glasstaff reaches for it. Trapped." }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_006c": {
+      "title": "Glasstaff Flees",
+      "narrative": "With a snarl, Glasstaff shoves through a concealed door behind the bookshelf and disappears into a dark passage beyond. By the time you follow, the passage is empty — leading out through a trapdoor into the trees behind the manor. He's gone. But his letters remain on the desk.",
+      "dm_note": "Glasstaff escapes. Players still get the letters and the information they need. He may reappear later as a recurring villain or be found at Cragmaw Castle. Don't let the escape feel like a total loss — the information is the real prize.",
+      "suggested_actions": [
+        { "label": "Search the study and read the letters", "requires_roll": false, "next_scene": "s2_scene_007" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_007": {
+      "title": "Planning the Next Move",
+      "narrative": "The Redbrand hideout is cleared. The prisoners are free. Phandalin is breathing easier — people come out of their houses when they hear the news, and by nightfall, someone has organized a modest feast at the Stonehill Inn in your honor. Sildar sits across from you with a mug of ale and a troubled expression. 'Cragmaw Castle,' he says. 'That's where Gundren is. It's a goblin stronghold, northeast of here, in the forest. And if Nezznar gets there first—' He shakes his head. 'We need to move. But first: rest. You've earned it.'",
+      "dm_note": "Long rest available. Players are heroes in Phandalin now. They can use this time to shop (Barthen's, Lionshield Coster), gather quests, and prepare. The main thread now leads to Cragmaw Castle. Session 2 ends here — session 3 will cover the castle.",
+      "suggested_actions": [
+        { "label": "Take a long rest and prepare for Cragmaw Castle", "requires_roll": false, "next_scene": "s2_scene_end" }
+      ],
+      "allow_custom": true
+    },
+    "s2_scene_end": {
+      "title": "Session Two Complete",
+      "narrative": "Phandalin sleeps soundly tonight for the first time in months. In the Stonehill Inn, over warm food and hard cider, your party plans the road ahead. Gundren Rockseeker waits at Cragmaw Castle — if he still lives. The Spider, Nezznar, has a head start on Wave Echo Cave. And somewhere in the Thornwood, Glasstaff nurses his wounds and nurses his grievances. The road east calls. But tonight, you rest — heroes of Phandalin.",
+      "dm_note": "Session 2 complete. Award 400 XP each. Session 3 will cover Cragmaw Castle. Encourage players to level up to level 3 before the next session. Remind them of their objectives: rescue Gundren, find Wave Echo Cave, stop the Spider.",
+      "suggested_actions": [],
+      "allow_custom": false,
+      "is_end": true
+    }
+  }
+}

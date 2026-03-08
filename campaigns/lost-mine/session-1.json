@@ -1,0 +1,202 @@
+{
+  "id": "session-1",
+  "title": "Goblin Arrows",
+  "type": "campaign-session",
+  "description": "The party escorts a wagon along the Triboar Trail — and rides straight into a goblin ambush.",
+  "starting_scene": "s1_scene_001",
+  "scenes": {
+    "s1_scene_001": {
+      "title": "The Triboar Trail",
+      "narrative": "The morning sun filters through the pines as your wagon rolls east along the Triboar Trail. You were hired by Gundren Rockseeker — a stout dwarf with more enthusiasm than caution — to deliver a load of provisions to the frontier town of Phandalin. Gundren rode ahead with his bodyguard, Sildar Hallwinter, promising to meet you there. The road is quiet. Perhaps too quiet. Then, ahead: two dead horses block the trail, peppered with black-feathered arrows.",
+      "dm_note": "The ambush is set. This is the opening encounter from LMoP. The horses belonged to Gundren and Sildar — both have been taken captive by goblins. Four goblins are hiding in the bushes on either side of the road (DC 10 Perception to notice before they attack).",
+      "suggested_actions": [
+        { "label": "Examine the dead horses cautiously", "check": "Perception", "dc": 10, "success_scene": "s1_scene_001b", "failure_scene": "s1_scene_001c", "success_bonus": "You catch a glint of movement in the bushes — goblins, at least four of them, bows drawn. You're not surprised." },
+        { "label": "Investigate the arrows in the horses", "check": "Investigation", "dc": 12, "success_scene": "s1_scene_001b", "failure_scene": "s1_scene_001c", "success_bonus": "The arrows are crude but effective — goblin-make. And the saddlebags have been rifled through. Someone was specifically targeted here." },
+        { "label": "Call out into the woods", "requires_roll": false, "next_scene": "s1_scene_001c" }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_001b": {
+      "title": "Prepared for the Ambush",
+      "narrative": "You signal your companions and fan out just as four goblins burst from the undergrowth with shrieking war cries. But you're ready. Roll initiative — you have the drop on them.",
+      "dm_note": "Players act first. Goblins: AC 13, HP 7 each, +4 to hit, 1d6+2 damage. After defeating them, players can find the trail to Cragmaw Hideout.",
+      "suggested_actions": [
+        { "label": "Fight the goblins (roll Attack, players go first)", "check": "Attack", "dc": 13, "success_scene": "s1_scene_002", "failure_scene": "s1_scene_001c", "success_bonus": "The goblins are routed! Two flee into the forest; two lie still on the road. A goblin trail leads north into the trees." }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_001c": {
+      "title": "Ambush!",
+      "narrative": "Four goblins burst from the undergrowth screaming! Arrows snap past your heads as they charge. 'No escape! Master Klarg wants your stuff!' one screeches. Roll initiative — combat has begun.",
+      "dm_note": "Standard ambush encounter. Goblins: AC 13, HP 7 each. After the fight, players can search the area and find a trail heading north — toward Cragmaw Hideout, where Gundren and Sildar are being held.",
+      "suggested_actions": [
+        { "label": "Fight the goblins (roll Attack)", "check": "Attack", "dc": 13, "success_scene": "s1_scene_002", "failure_scene": "s1_scene_001d", "success_bonus": "The goblins are defeated! One drops a crude note — written in Common: 'Bring the dwarf. Do not harm him. —Spider.'" }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_001d": {
+      "title": "Taking Damage",
+      "narrative": "The goblins land several blows before you drive them off. One escapes into the forest. You're hurt — but alive. The road is silent again, except for your ragged breathing.",
+      "dm_note": "Party takes 1d6 damage each. They should take a short rest here before pressing on. Then they can follow the goblin trail.",
+      "suggested_actions": [
+        { "label": "Take a short rest and tend to wounds", "requires_roll": false, "next_scene": "s1_scene_002" },
+        { "label": "Press on immediately and follow the goblin trail", "requires_roll": false, "next_scene": "s1_scene_002" }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_002": {
+      "title": "The Goblin Trail",
+      "narrative": "Searching the area, you find a narrow trail leading north into the forest — trampled by many small feet. Bootprints, dropped food scraps, a torn piece of blue cloth. Gundren's colors. They took him this way.",
+      "dm_note": "The trail leads to Cragmaw Hideout, about a mile north. Players should be motivated to follow — Gundren and Sildar are being held there. The trail has two traps (snares and a pit) that sharp-eyed players can spot.",
+      "suggested_actions": [
+        { "label": "Follow the trail carefully, watching for traps", "check": "Perception", "dc": 12, "success_scene": "s1_scene_003", "failure_scene": "s1_scene_002b", "success_bonus": "You spot a crude snare across the trail — and a hidden pit just beyond it. You step around both safely." },
+        { "label": "Follow the trail quickly — Gundren needs help now", "requires_roll": false, "next_scene": "s1_scene_002b" }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_002b": {
+      "title": "Caught in a Snare",
+      "narrative": "You feel the rope snag your ankle — and then you're dangling upside down from a tree branch, coins and equipment raining down around you. From deeper in the forest, goblin laughter echoes. They know you're coming.",
+      "dm_note": "Player(s) caught in a snare are restrained until freed (DC 10 Athletics or a bladed weapon). Goblins at the hideout are now alerted — they won't be surprised.",
+      "suggested_actions": [
+        { "label": "Cut yourself free and push on", "check": "Athletics", "dc": 10, "success_scene": "s1_scene_003", "failure_scene": "s1_scene_002c", "success_bonus": "You wrench free of the snare and dust yourself off. Time to be more careful." }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_002c": {
+      "title": "Struggling with the Snare",
+      "narrative": "You hang there, red-faced, as a companion works to cut you down. Precious time passes — and from the direction of the cave, a horn sounds. An alarm.",
+      "dm_note": "The goblins are now fully alerted. The hideout entrance will have extra guards waiting. Continue to scene_003 regardless.",
+      "suggested_actions": [
+        { "label": "Regroup and continue to the hideout", "requires_roll": false, "next_scene": "s1_scene_003" }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_003": {
+      "title": "Cragmaw Hideout",
+      "narrative": "The trail ends at a rocky hillside. A stream trickles from a cave opening, ten feet wide and five feet tall. Crude wooden stakes line the entrance. Inside, you can hear gruff voices — goblin speech — and the occasional sound of water dripping. Two goblins stand guard just inside the cave mouth, lazily picking their teeth.",
+      "dm_note": "The hideout has multiple areas: a wolf den (area 1), a goblin common area (area 2), a bridge and Sildar's cell (area 3), and Klarg's chamber (area 4). Players can explore in any order. Sildar is in area 3; Gundren has already been taken to Cragmaw Castle.",
+      "suggested_actions": [
+        { "label": "Sneak past the guards into the cave", "check": "Stealth", "dc": 12, "success_scene": "s1_scene_004", "failure_scene": "s1_scene_003b", "success_bonus": "You slip past the guards unseen and enter the cave. Ahead, the passage splits." },
+        { "label": "Distract the guards and slip inside", "check": "Deception", "dc": 10, "success_scene": "s1_scene_004", "failure_scene": "s1_scene_003b", "success_bonus": "A tossed rock draws both guards away from the entrance. You're inside before they realize it." },
+        { "label": "Attack the guards directly", "check": "Attack", "dc": 13, "success_scene": "s1_scene_004", "failure_scene": "s1_scene_003b", "success_bonus": "The guards fall quickly — but the sound may have carried deeper into the cave." }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_003b": {
+      "title": "The Guards React",
+      "narrative": "The guards spot you and raise a gurgling alarm before you can silence them. From deeper in the cave, you hear shouting and movement. They know you're here.",
+      "dm_note": "Combat with the guards, plus 1d4 reinforcements arrive in round 2. After clearing them, players can explore the hideout.",
+      "suggested_actions": [
+        { "label": "Fight through and enter the cave", "check": "Attack", "dc": 13, "success_scene": "s1_scene_004", "failure_scene": "s1_scene_004", "success_bonus": "You overpower the guards. The way into the hideout is open." }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_004": {
+      "title": "Inside Cragmaw Hideout",
+      "narrative": "The cave smells of wet fur and old fire. To your left, you hear heavy breathing and the rattle of chains — wolves, chained in a side passage. Straight ahead, the passage opens into a wider chamber where goblins huddle around a cooking fire. Above them, a crude wooden bridge spans the passage at a higher level. And somewhere, from the direction of the bridge, a human voice groans in pain.",
+      "dm_note": "Three areas to explore: wolf den (left), goblin common area (straight), upper area with bridge and Sildar (above). Players can approach in any order. The wolves can be calmed with DC 15 Animal Handling or freed to cause chaos.",
+      "suggested_actions": [
+        { "label": "Investigate the wolves in the side passage", "check": "Animal Handling", "dc": 15, "success_scene": "s1_scene_004b", "failure_scene": "s1_scene_004c", "success_bonus": "The wolves calm at your approach, ears flattening. They could be useful allies — or at least won't complicate things." },
+        { "label": "Attack the goblins around the fire", "check": "Attack", "dc": 13, "success_scene": "s1_scene_005", "failure_scene": "s1_scene_005", "success_bonus": "The goblin guards fall in a flurry of steel. One drops a key ring." },
+        { "label": "Climb toward the bridge and the groaning voice", "check": "Athletics", "dc": 10, "success_scene": "s1_scene_005", "failure_scene": "s1_scene_005", "success_bonus": "You pull yourself up to the bridge level. Through a crude wooden door, someone is being kept prisoner." }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_004b": {
+      "title": "The Wolves",
+      "narrative": "Three wolves regard you with amber eyes, chains taut. They're hungry and mistreated — but not yet feral. You murmur slowly, letting them sniff your hand. One wags its tail, tentatively.",
+      "dm_note": "Players can free the wolves (DC 13 Thieves' Tools or break the chains with DC 16 Athletics). Free wolves will attack goblins in the next combat automatically. Or players may leave them and move on.",
+      "suggested_actions": [
+        { "label": "Free the wolves — let them deal with the goblins", "check": "Athletics", "dc": 16, "success_scene": "s1_scene_005_wolves", "failure_scene": "s1_scene_005", "success_bonus": "The chains snap! The wolves bolt toward the goblin chamber, howling with fury. Chaos erupts ahead." },
+        { "label": "Leave the wolves and press on", "requires_roll": false, "next_scene": "s1_scene_005" }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_004c": {
+      "title": "The Wolves React",
+      "narrative": "One of the wolves snaps at you, nearly taking a finger. They're too agitated to approach safely. You'll have to leave them chained.",
+      "dm_note": "Players failed to calm the wolves. They can try other options or move on.",
+      "suggested_actions": [
+        { "label": "Move on to the main cave", "requires_roll": false, "next_scene": "s1_scene_005" }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_005": {
+      "title": "The Goblin Chamber",
+      "narrative": "Six goblins lounge around a fire pit in the main cave chamber, gnawing bones and arguing in their harsh language. Above them, a bridge of wood and rope spans the cave twenty feet up. At the far end of the bridge, a crude door — and behind it, someone is alive and in pain.",
+      "dm_note": "Six goblins, AC 13, HP 7 each. After defeating them, players can ascend to the bridge and find Sildar Hallwinter, badly beaten but alive. He has information: Gundren was taken to Cragmaw Castle, and the Spider is behind everything.",
+      "suggested_actions": [
+        { "label": "Fight the goblins", "check": "Attack", "dc": 13, "success_scene": "s1_scene_006", "failure_scene": "s1_scene_005b", "success_bonus": "The goblins are defeated. The cave goes quiet except for the dripping of water and the moaning from above." },
+        { "label": "Try to bluff the goblins into leaving", "check": "Deception", "dc": 14, "success_scene": "s1_scene_006", "failure_scene": "s1_scene_005", "success_bonus": "Your confident lie sends half the goblins scrambling out of the cave. The rest are easier to handle." }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_005_wolves": {
+      "title": "Wolf-Assisted Chaos",
+      "narrative": "The wolves tear through the goblin chamber like a grey storm. Goblins scatter in all directions, shrieking. By the time the dust settles, the wolves sit in the middle of the room, wagging their tails, surrounded by routed goblins. One wolf drops a goblin's coin purse at your feet.",
+      "dm_note": "Combat mostly resolved by the wolves! Great player thinking. Skip directly to Sildar's rescue.",
+      "suggested_actions": [
+        { "label": "Ascend to the bridge and find the prisoner", "requires_roll": false, "next_scene": "s1_scene_006" }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_005b": {
+      "title": "A Tough Fight",
+      "narrative": "The goblins put up more resistance than expected. Several land blows before you overwhelm them. Finally the last one falls, and the cave falls silent.",
+      "dm_note": "Party takes 1d6 damage each. Suggest a short rest before the Klarg encounter.",
+      "suggested_actions": [
+        { "label": "Take a short rest to recover", "requires_roll": false, "next_scene": "s1_scene_006" },
+        { "label": "Push on immediately", "requires_roll": false, "next_scene": "s1_scene_006" }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_006": {
+      "title": "Sildar Hallwinter",
+      "narrative": "You climb to the bridge and pull open the crude wooden door. Inside, chained to a stalagmite, is a human man — heavyset, grey-haired, armor battered and face bruised. He looks up with fierce, tired eyes. 'Took you long enough,' he rasps. 'Sildar Hallwinter, Lords' Alliance. Gundren — they've taken him. Cragmaw Castle. And they did it on orders from someone called the Spider. Whatever that map leads to, this Spider wants it very badly.'",
+      "dm_note": "Sildar is an important NPC. He'll join the party if freed and can be a source of information going forward. He knows: the Spider is connected to the Zhentarim, Gundren had a map to Wave Echo Cave, Phandalin has been having troubles with a bandit gang called the Redbrands.",
+      "suggested_actions": [
+        { "label": "Free Sildar and ask him about Cragmaw Castle", "requires_roll": false, "next_scene": "s1_scene_007" },
+        { "label": "Search for Klarg before freeing Sildar", "requires_roll": false, "next_scene": "s1_scene_006b" }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_006b": {
+      "title": "Klarg's Chamber",
+      "narrative": "Beyond the goblin chamber, a passage leads to a larger cave. Inside, a bugbear twice the size of the goblins stands over a pile of stolen goods, picking his teeth with a shortspear. Beside him, a wolf the size of a pony lounges on a pile of furs. 'MORE intruders?!' Klarg roars. 'Klarg CRUSH you all!'",
+      "dm_note": "Klarg is the bugbear boss. AC 13, HP 27, +4 to hit, 2d8+2 damage. The wolf (Ripper): AC 13, HP 11, +4 to hit. Klarg has the supplies Gundren paid for, plus 600cp, 110sp, 2 potions of healing, and a jade frog worth 40gp.",
+      "suggested_actions": [
+        { "label": "Fight Klarg and his wolf", "check": "Attack", "dc": 13, "success_scene": "s1_scene_007", "failure_scene": "s1_scene_006c", "success_bonus": "Klarg falls with a ground-shaking crash. His wolf bolts into the darkness. The stolen provisions are piled against the wall." },
+        { "label": "Intimidate Klarg into fleeing", "check": "Intimidation", "dc": 17, "success_scene": "s1_scene_007", "failure_scene": "s1_scene_006b", "success_bonus": "Klarg's bravado crumbles. He snarls and backs away, then turns and crashes through the cave wall in retreat. You're sure he'll be back — but not today." }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_006c": {
+      "title": "Klarg Hits Hard",
+      "narrative": "Klarg's spear catches you across the chest and you stagger. He's stronger than any goblin you've faced. But he's also arrogant — which gives you an opening.",
+      "dm_note": "Party takes 2d8+2 damage from Klarg's hit. Continue the fight — or suggest a tactical retreat to regroup.",
+      "suggested_actions": [
+        { "label": "Regroup and attack again", "check": "Attack", "dc": 13, "success_scene": "s1_scene_007", "failure_scene": "s1_scene_006c", "success_bonus": "You find his rhythm and turn his arrogance against him. Klarg goes down hard." },
+        { "label": "Retreat and free Sildar first for help", "requires_roll": false, "next_scene": "s1_scene_006" }
+      ],
+      "allow_custom": true
+    },
+    "s1_scene_007": {
+      "title": "Leaving Cragmaw Hideout",
+      "narrative": "Sildar walks stiffly beside you as you emerge from the cave into the afternoon light. He breathes deeply. 'Phandalin is two hours south,' he says. 'That's where we need to go. And that's where the trouble started.' He glances back at the cave. 'Gundren had found it — the entrance to Wave Echo Cave. The Lost Mine of Phandelver. If the Spider gets there first, whatever is inside belongs to him.' He meets your eyes. 'We can't let that happen.'",
+      "dm_note": "Great end to session one. Players should feel accomplished — they've rescued Sildar, learned about the Spider, and have a direction: Phandalin. Hook set for session 2. Award 300 XP each.",
+      "suggested_actions": [
+        { "label": "Head to Phandalin with Sildar", "requires_roll": false, "next_scene": "s1_scene_end" }
+      ],
+      "allow_custom": false
+    },
+    "s1_scene_end": {
+      "title": "Session One Complete",
+      "narrative": "The Triboar Trail stretches south as your wagon rolls toward Phandalin. Sildar rests in the back, wounds bandaged, the stolen provisions stacked around him. The afternoon fades to gold. Somewhere ahead, a town holds secrets. Somewhere beyond it, a dwarf friend waits to be found. And somewhere out there, the Spider watches and plans. The game is only beginning.",
+      "dm_note": "End of Session 1 — Goblin Arrows. XP: 300 each (more if they defeated Klarg: +100). Take a long rest between sessions. Session 2 begins in Phandalin.",
+      "suggested_actions": [],
+      "allow_custom": false,
+      "is_end": true
+    }
+  }
+}

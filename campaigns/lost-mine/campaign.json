@@ -1,0 +1,12 @@
+{
+  "id": "lost-mine",
+  "title": "The Lost Mine of Phandelver",
+  "type": "campaign",
+  "description": "A classic introductory campaign. The party is hired to escort a wagon to the town of Phandalin — but their contact never arrives, and something dark stirs in the mines beneath Wave Echo Cave.",
+  "recommended_players": "3-5",
+  "difficulty": "Beginner",
+  "sessions": [
+    { "id": "session-1", "title": "Goblin Arrows", "file": "session-1.json" },
+    { "id": "session-2", "title": "Phandalin", "file": "session-2.json" }
+  ]
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D&amp;D Master — Playing</title>
+  <meta name="description" content="D&D Master game interface — your Dungeon Master narrates the story as you play." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="game-page">
+
+  <!-- Top bar: progress + back button -->
+  <div class="game-topbar">
+    <div class="game-topbar-left">
+      <a href="index.html" class="btn btn-ghost" id="back-btn" title="Return to main menu">&#8592; Menu</a>
+      <span class="game-title-small" id="game-title-display"></span>
+    </div>
+    <span class="game-progress" id="progress-display"></span>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-state" id="loading-state">
+    <div class="spinner"></div>
+    <span>The DM is preparing your adventure...</span>
+  </div>
+
+  <!-- Error State -->
+  <div class="error-state" id="error-state" style="display:none;">
+    <h2>Something Went Wrong</h2>
+    <p id="error-message">The adventure could not be loaded.</p>
+    <a href="index.html" class="btn mt-2">Return to Menu</a>
+  </div>
+
+  <!-- Campaign Session Picker -->
+  <div class="session-picker parchment" id="session-picker" style="display:none;">
+    <h2>Choose a Session</h2>
+    <p class="text-muted mb-3" id="campaign-desc-display"></p>
+    <div class="session-picker-list" id="session-picker-list"></div>
+  </div>
+
+  <!-- Main Game Interface -->
+  <div id="game-interface" style="display:none;">
+
+    <!-- Scene Header -->
+    <div class="scene-header">
+      <h1 class="scene-title" id="scene-title">Loading...</h1>
+    </div>
+
+    <!-- DM Narrative Box -->
+    <div class="narrative-box parchment" id="narrative-box">
+      <div class="dm-label">Dungeon Master</div>
+      <div class="narrative-text" id="narrative-text"></div>
+    </div>
+
+    <!-- DM Note (private to the DM reading the screen) -->
+    <div class="dm-note-box" id="dm-note-box" style="display:none;">
+      <div class="dm-note-label">&#9752; DM Note</div>
+      <div id="dm-note-text"></div>
+    </div>
+
+    <!-- Action Section -->
+    <div class="action-section" id="action-section">
+      <div class="action-section-title">Choose Your Action</div>
+      <div class="action-buttons" id="action-buttons"></div>
+      <div class="custom-action-area" id="custom-action-area" style="display:none;">
+        <div class="custom-action-label">Or describe your own action:</div>
+        <div class="custom-input-row">
+          <input
+            type="text"
+            class="custom-input"
+            id="custom-action-input"
+            placeholder="I want to try..."
+            maxlength="200"
+            autocomplete="off"
+          />
+          <button class="btn" id="custom-action-submit">Go</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Roll Section -->
+    <div class="roll-section" id="roll-section">
+      <div class="roll-box">
+        <div class="roll-prompt" id="roll-prompt">
+          Make a <strong id="roll-skill-name">Perception</strong> check
+        </div>
+        <div class="roll-dc-display" id="roll-dc-display">
+          Difficulty Class: <strong id="roll-dc-value">12</strong> — roll your dice and enter the result below.
+        </div>
+
+        <!-- Fields shown only for custom actions -->
+        <div class="custom-roll-fields" id="custom-roll-fields" style="display:none;">
+          <div class="custom-roll-field">
+            <label for="custom-skill-select">Skill / Ability</label>
+            <select id="custom-skill-select">
+              <option value="Strength">Strength</option>
+              <option value="Dexterity">Dexterity</option>
+              <option value="Constitution">Constitution</option>
+              <option value="Intelligence">Intelligence</option>
+              <option value="Wisdom">Wisdom</option>
+              <option value="Charisma">Charisma</option>
+              <option value="Perception">Perception</option>
+              <option value="Stealth">Stealth</option>
+              <option value="Persuasion">Persuasion</option>
+              <option value="Intimidation">Intimidation</option>
+              <option value="Investigation">Investigation</option>
+              <option value="Athletics">Athletics</option>
+              <option value="Acrobatics">Acrobatics</option>
+              <option value="Deception">Deception</option>
+              <option value="Attack">Attack Roll</option>
+            </select>
+          </div>
+          <div class="custom-roll-field">
+            <label for="custom-dc-input">Difficulty Class (DC)</label>
+            <input type="number" id="custom-dc-input" value="12" min="1" max="30" />
+          </div>
+        </div>
+
+        <div class="roll-input-row">
+          <input
+            type="number"
+            class="roll-input"
+            id="roll-result-input"
+            placeholder="—"
+            min="1"
+            max="30"
+            aria-label="Your dice roll result"
+          />
+          <span class="roll-input-label">Your roll result (add modifiers)</span>
+        </div>
+
+        <div class="mt-2" style="display:flex; gap: 0.75rem; align-items:center;">
+          <button class="btn btn-primary" id="submit-roll-btn">Submit Roll</button>
+          <button class="btn btn-ghost" id="cancel-roll-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Continue Button (no roll needed) -->
+    <div id="continue-section" style="display:none; margin-bottom: 1.5rem;">
+      <button class="btn btn-success" id="continue-btn">Continue &#8250;</button>
+    </div>
+
+    <!-- Outcome Box -->
+    <div class="outcome-box" id="outcome-box">
+      <div class="outcome-label" id="outcome-label"></div>
+      <div class="outcome-text" id="outcome-text"></div>
+      <div class="outcome-bonus" id="outcome-bonus" style="display:none;"></div>
+      <div class="outcome-actions">
+        <button class="btn btn-primary" id="outcome-next-btn">Continue the Story &#8250;</button>
+      </div>
+    </div>
+
+    <!-- End Screen -->
+    <div class="end-screen" id="end-screen" style="display:none;">
+      <h2>&#9876; Adventure Complete</h2>
+      <p class="end-narrative" id="end-narrative-text"></p>
+      <div class="dm-note-box" id="end-dm-note" style="display:none;">
+        <div class="dm-note-label">&#9752; DM Note</div>
+        <div id="end-dm-note-text"></div>
+      </div>
+      <div class="end-buttons">
+        <a href="index.html" class="btn">Return to Menu</a>
+        <button class="btn btn-primary" id="restart-btn">Play Again</button>
+      </div>
+    </div>
+
+  </div><!-- /#game-interface -->
+
+  <!-- Bottom controls -->
+  <div class="game-controls" id="game-controls" style="display:none;">
+    <div>
+      <button class="btn btn-ghost" id="toggle-dm-note-btn" title="Toggle DM notes">&#9752; DM Notes</button>
+    </div>
+    <div style="display:flex; gap: 0.5rem;">
+      <button class="btn btn-ghost" id="save-progress-btn">&#128190; Save</button>
+      <a href="index.html" class="btn btn-ghost">&#8592; Menu</a>
+    </div>
+  </div>
+
+  <script src="js/engine.js"></script>
+</body>
+</html>

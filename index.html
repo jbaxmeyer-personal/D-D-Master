@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D&amp;D Master — Choose Your Fate</title>
+  <meta name="description" content="A digital Dungeon Master for tabletop adventurers. Choose an adventure or campaign, roll your dice, and let the story unfold." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="index-page">
+
+  <header class="site-header">
+    <div class="site-logo">D&amp;D Master</div>
+    <div class="site-tagline">Your digital Dungeon Master awaits</div>
+  </header>
+
+  <main class="index-main">
+
+    <!-- Mode Selection Cards -->
+    <div class="mode-grid">
+      <div class="mode-card parchment" id="adventures-card" role="button" tabindex="0" aria-pressed="false">
+        <span class="mode-icon" aria-hidden="true">&#9876;</span>
+        <h2>Adventures</h2>
+        <p>Self-contained stories for a single session. Perfect for a night's gaming — no long-term commitment needed.</p>
+        <span class="mode-badge">1 – 3 Hours</span>
+      </div>
+      <div class="mode-card parchment" id="campaigns-card" role="button" tabindex="0" aria-pressed="false">
+        <span class="mode-icon" aria-hidden="true">&#128218;</span>
+        <h2>Campaigns</h2>
+        <p>Epic multi-session journeys. Progress is saved between sessions, and the story grows with every choice.</p>
+        <span class="mode-badge">Multiple Sessions</span>
+      </div>
+    </div>
+
+    <!-- Adventures Panel -->
+    <div class="content-panel" id="adventures-panel" aria-label="Adventures list">
+      <div class="content-panel-header">
+        <h2 class="text-gold">Available Adventures</h2>
+      </div>
+      <div class="content-list" id="adventures-list">
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <span>Loading adventures...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campaigns Panel -->
+    <div class="content-panel" id="campaigns-panel" aria-label="Campaigns list">
+      <div class="content-panel-header">
+        <h2 class="text-gold">Available Campaigns</h2>
+      </div>
+      <div class="content-list" id="campaigns-list">
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <span>Loading campaigns...</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>Roll the dice &mdash; let fate decide &mdash; D&amp;D Master</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

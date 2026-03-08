@@ -1,0 +1,228 @@
+{
+  "id": "goblin-cave",
+  "title": "The Goblin Cave",
+  "type": "adventure",
+  "description": "A short adventure for 2-4 players. Goblins have been raiding the village of Millhaven — livestock stolen, a barn burned. The trail leads east, into the Thornwood, and to a goblin warchief called Skrix who may want more than plunder.",
+  "recommended_players": "2-4",
+  "estimated_time": "2-3 hours",
+  "difficulty": "Beginner",
+  "starting_scene": "scene_001",
+  "scenes": {
+    "scene_001": {
+      "title": "The Village of Millhaven",
+      "narrative": "The village elder meets you at the inn, his face drawn with worry. 'Thank the gods you've come,' he says, wringing his hands. 'Three nights running, goblins have attacked our farms — livestock stolen, a barn burned. My people are afraid to sleep.' He slides a crude map across the table. 'They come from the Thornwood, to the east. Will you help us?'",
+      "dm_note": "This is the quest hook. Encourage players to ask questions — the elder knows the goblins number around a dozen, their cave entrance is near a dead oak.",
+      "suggested_actions": [
+        { "label": "Ask the elder for more details about the attacks", "requires_roll": false, "next_scene": "scene_001b" },
+        { "label": "Accept the quest and head to the Thornwood immediately", "requires_roll": false, "next_scene": "scene_002" },
+        { "label": "Scout the village perimeter before heading out", "check": "Perception", "dc": 12, "success_scene": "scene_001c", "failure_scene": "scene_002", "success_bonus": "You notice fresh goblin tracks leading east — and a stolen chicken feather near the well." }
+      ],
+      "allow_custom": true
+    },
+    "scene_001b": {
+      "title": "Gathering Information",
+      "narrative": "The elder leans forward eagerly. 'The leader — they call him Skrix — is cunning, not like normal goblins. He organizes them. Last night's attack, they came in two groups — a distraction and a raiding party. Professional-like.' He lowers his voice. 'And stranger still — they didn't kill anyone. Almost like they're looking for something specific.'",
+      "dm_note": "Drop the mystery hint. The goblins are searching for an old chest the elder buried years ago — he doesn't know they know about it. Save this reveal for later.",
+      "suggested_actions": [
+        { "label": "Head to the Thornwood", "requires_roll": false, "next_scene": "scene_002" }
+      ],
+      "allow_custom": true
+    },
+    "scene_001c": {
+      "title": "Tracks in the Mud",
+      "narrative": "You spot a trail of small, three-toed footprints in the soft earth near the well — fresh, maybe hours old. They lead east toward the treeline. Whoever made them paused here, circling the well twice. They were looking for something.",
+      "dm_note": "The tracks are a clue — the goblins circled the well because the old chest is buried nearby. Players who investigate the well further find disturbed earth (DC 15 Investigation).",
+      "suggested_actions": [
+        { "label": "Follow the tracks into the Thornwood", "requires_roll": false, "next_scene": "scene_002" },
+        { "label": "Investigate why the tracks circle the well", "check": "Investigation", "dc": 15, "success_scene": "scene_001d", "failure_scene": "scene_002", "success_bonus": "You find freshly disturbed earth near the well's base — something is buried here." }
+      ],
+      "allow_custom": true
+    },
+    "scene_001d": {
+      "title": "Something Buried",
+      "narrative": "Digging with your hands, you uncover a wooden chest, old but intact, sealed with a simple iron latch. Whatever is inside rattles faintly when you lift it. The elder goes pale when he sees it. 'I... I forgot that was there,' he says, clearly lying.",
+      "dm_note": "The chest contains an old treasure map the elder found years ago — he buried it, thinking it cursed. The goblins want it. You can reveal its contents if players open it — a map to the old Mirewatch dungeon.",
+      "suggested_actions": [
+        { "label": "Open the chest", "requires_roll": false, "next_scene": "scene_001e" },
+        { "label": "Bring the chest along and head to the Thornwood", "requires_roll": false, "next_scene": "scene_002" }
+      ],
+      "allow_custom": true
+    },
+    "scene_001e": {
+      "title": "The Map",
+      "narrative": "Inside the chest is a rolled piece of yellowed parchment — a map, hand-drawn, marking a place called Mirewatch deep in the Thornwood. An X marks a chamber labeled 'Vault.' The elder snatches it from your hands, then stops himself. 'This is why they're here,' he whispers. 'This is what Skrix wants.'",
+      "dm_note": "Now the stakes are clear. The goblins aren't raiding randomly — they want this map. Players can use this as leverage or a target.",
+      "suggested_actions": [
+        { "label": "Head to the Thornwood to confront the goblins", "requires_roll": false, "next_scene": "scene_002" }
+      ],
+      "allow_custom": true
+    },
+    "scene_002": {
+      "title": "The Thornwood",
+      "narrative": "The Thornwood lives up to its name — dense, tangled undergrowth claws at your legs as you push through the treeline. The light dims quickly beneath the canopy. Somewhere ahead, you hear movement. Twigs snapping. Low chittering laughter.",
+      "dm_note": "Build tension. The goblins know the players are coming — a scout spotted them leaving the village. Two goblins are hiding in the trees above (Stealth DC 14 to spot them before they attack).",
+      "suggested_actions": [
+        { "label": "Move cautiously and watch for an ambush", "check": "Perception", "dc": 14, "success_scene": "scene_002b", "failure_scene": "scene_002c", "success_bonus": "You spot two goblins crouched in the branches above — you have the element of surprise." },
+        { "label": "Charge ahead boldly", "requires_roll": false, "next_scene": "scene_002c" },
+        { "label": "Try to sneak through the forest", "check": "Stealth", "dc": 13, "success_scene": "scene_003", "failure_scene": "scene_002c", "success_bonus": "You slip past the ambush undetected and push deeper into the forest." }
+      ],
+      "allow_custom": true
+    },
+    "scene_002b": {
+      "title": "Spotted the Ambush",
+      "narrative": "You freeze and signal your companions — two goblins squat in the branches above, crude bows drawn. They haven't seen you yet. You have a moment to act before they do.",
+      "dm_note": "Players can attack first (advantage on first round), try to intimidate them into fleeing, or use another approach. If they attack and succeed, move to scene_003. If intimidating, DC 12 Intimidation.",
+      "suggested_actions": [
+        { "label": "Attack the goblins before they spot you — first strike!", "check": "Attack", "dc": 10, "success_scene": "scene_003", "failure_scene": "scene_002c", "success_bonus": "Your surprise attack sends one goblin tumbling from the tree. The other flees into the forest, squealing." },
+        { "label": "Shout a warning to intimidate them into fleeing", "check": "Intimidation", "dc": 12, "success_scene": "scene_003", "failure_scene": "scene_002c", "success_bonus": "The goblins shriek and scramble down from the tree, disappearing into the undergrowth." }
+      ],
+      "allow_custom": true
+    },
+    "scene_002c": {
+      "title": "Ambush!",
+      "narrative": "Two goblins drop from the trees with a shriek, crude short swords flashing! 'Skrix send us — take map! Kill softskins!' one screeches. Roll for initiative — combat has begun.",
+      "dm_note": "Run a brief combat encounter. Goblins: AC 13, HP 7 each, +4 to hit, 1d6+2 damage. After both are defeated (or one flees), continue to scene_003. If players are badly hurt, a short rest is appropriate here.",
+      "suggested_actions": [
+        { "label": "Fight the goblins (roll Attack for each player)", "check": "Attack", "dc": 13, "success_scene": "scene_003", "failure_scene": "scene_002c_hurt", "success_bonus": "The goblins are defeated! One drops a crude note — a rough map to their cave, marked with goblin scrawl." },
+        { "label": "Try to capture one goblin to interrogate", "check": "Athletics", "dc": 14, "success_scene": "scene_002d", "failure_scene": "scene_002c_hurt", "success_bonus": "You tackle a goblin to the ground. It squirms and spits but is pinned." }
+      ],
+      "allow_custom": true
+    },
+    "scene_002c_hurt": {
+      "title": "A Hard Fight",
+      "narrative": "The goblins are scrappier than expected. After a brutal exchange, they finally fall — but your party is bruised and bloodied. You stand in the quiet forest, catching your breath.",
+      "dm_note": "Players take some damage (suggest 1d6 each). Offer a short rest here (1 hour, recover some HP). Then push on to the cave.",
+      "suggested_actions": [
+        { "label": "Take a short rest to recover before pressing on", "requires_roll": false, "next_scene": "scene_003" },
+        { "label": "Press on immediately despite injuries", "requires_roll": false, "next_scene": "scene_003" }
+      ],
+      "allow_custom": true
+    },
+    "scene_002d": {
+      "title": "Prisoner",
+      "narrative": "The pinned goblin thrashes and bites at the air. 'Let go! Let go! Skrix kill you! Skrix kill everyone!' it shrieks. But fear flickers in its yellow eyes.",
+      "dm_note": "Players can interrogate it. DC 10 Intimidation or Persuasion gets useful info: the cave is northeast, there are 8 more goblins, Skrix has a 'shiny rock that talks.' This is a magic item — a sending stone — that Skrix uses to communicate with someone else (mystery hook for later).",
+      "suggested_actions": [
+        { "label": "Intimidate the goblin for information", "check": "Intimidation", "dc": 10, "success_scene": "scene_002e", "failure_scene": "scene_003", "success_bonus": "The goblin squeaks out everything it knows, eyes wide with terror." },
+        { "label": "Persuade the goblin to lead you to the cave", "check": "Persuasion", "dc": 12, "success_scene": "scene_002e", "failure_scene": "scene_003", "success_bonus": "With surprising dignity, the goblin agrees to guide you, on the condition you let it go after." }
+      ],
+      "allow_custom": true
+    },
+    "scene_002e": {
+      "title": "Valuable Information",
+      "narrative": "The goblin spills everything: 'Eight goblins wait in cave — northeast, near dead oak. Skrix very smart. He have stone — shiny rock, he talk to it, someone answer back. Voice like cold water. We afraid of voice more than Skrix.'",
+      "dm_note": "The sending stone mystery is a hook for a future campaign. Don't resolve it now — just let it hang there. Who is Skrix talking to?",
+      "suggested_actions": [
+        { "label": "Head to the goblin cave", "requires_roll": false, "next_scene": "scene_003" }
+      ],
+      "allow_custom": true
+    },
+    "scene_003": {
+      "title": "The Cave Entrance",
+      "narrative": "The dead oak stands like a broken finger against the grey sky. At its roots, the earth drops away into a dark opening — the goblin cave. A crude wooden gate blocks the entrance, and you can hear voices inside. Two goblin sentries squat outside, tossing bones for amusement, backs half-turned to you.",
+      "dm_note": "Final approach. Players can sneak past, trick, or fight the sentries. Getting past without raising an alarm gives advantage on the Skrix encounter.",
+      "suggested_actions": [
+        { "label": "Sneak past the sentries", "check": "Stealth", "dc": 13, "success_scene": "scene_004_stealth", "failure_scene": "scene_004_combat", "success_bonus": "You slip past the distracted sentries and into the cave undetected." },
+        { "label": "Create a distraction to draw them away", "check": "Deception", "dc": 11, "success_scene": "scene_004_stealth", "failure_scene": "scene_004_combat", "success_bonus": "A thrown stone draws both sentries away from the entrance long enough for you to slip inside." },
+        { "label": "Rush and overpower the sentries before they can raise the alarm", "check": "Attack", "dc": 12, "success_scene": "scene_004_stealth", "failure_scene": "scene_004_combat", "success_bonus": "Swift and decisive, you silence both sentries before they can shout." }
+      ],
+      "allow_custom": true
+    },
+    "scene_004_stealth": {
+      "title": "Inside the Cave",
+      "narrative": "The cave smells of smoke and unwashed bodies. Rough passages branch left and right. Straight ahead, firelight flickers from a larger chamber — you hear a commanding voice snapping orders in Goblin. Skrix.",
+      "dm_note": "Players enter with advantage. Skrix is in the main chamber with 6 goblins. If players plan carefully, they can isolate goblins before the boss fight. Encourage creative thinking.",
+      "suggested_actions": [
+        { "label": "Observe the main chamber before acting", "check": "Perception", "dc": 11, "success_scene": "scene_005_prepared", "failure_scene": "scene_005_combat", "success_bonus": "You count six goblins — two sleeping, three by the fire, one posted as lookout. Skrix stands at a stone table, examining something small and glowing." },
+        { "label": "Charge into the main chamber", "requires_roll": false, "next_scene": "scene_005_combat" }
+      ],
+      "allow_custom": true
+    },
+    "scene_004_combat": {
+      "title": "The Alarm is Raised!",
+      "narrative": "The sentries shout — or you're spotted — and the cave erupts into chaos. Goblin voices echo from every passage. They know you're here.",
+      "dm_note": "The players lose the element of surprise. Sentries + 2 reinforcements attack. After the entrance fight, they push into the cave — Skrix will be waiting and prepared.",
+      "suggested_actions": [
+        { "label": "Fight through to the main chamber", "check": "Attack", "dc": 13, "success_scene": "scene_005_combat", "failure_scene": "scene_005_combat", "success_bonus": "You cut through the goblin defenders and push into the main chamber, battered but standing." }
+      ],
+      "allow_custom": true
+    },
+    "scene_005_prepared": {
+      "title": "A Tactical Advantage",
+      "narrative": "Armed with knowledge of the chamber, you plan your approach. Two goblins sleep by the far wall — easy targets. The lookout faces away. If you move now, carefully, you can neutralize half of them before Skrix even knows you're there.",
+      "dm_note": "Give players real tactical options. Let them narrate their approach. This is D&D at its best — player creativity rewarded.",
+      "suggested_actions": [
+        { "label": "Take out the sleeping goblins silently first", "check": "Stealth", "dc": 12, "success_scene": "scene_005_boss", "failure_scene": "scene_005_combat", "success_bonus": "Two goblins never wake up. The odds are now in your favor." },
+        { "label": "Create a distraction to scatter the goblins", "check": "Deception", "dc": 13, "success_scene": "scene_005_boss", "failure_scene": "scene_005_combat", "success_bonus": "Chaos erupts — goblins scatter in every direction, and Skrix stands alone." }
+      ],
+      "allow_custom": true
+    },
+    "scene_005_combat": {
+      "title": "The Goblin Cave — Combat",
+      "narrative": "The main chamber is chaos — goblins everywhere, a central fire pit throwing wild shadows. At the far end, a goblin larger than the rest stands on a rock, screaming orders. Skrix. His eyes find yours immediately. 'You. The softskins. Skrix wondered when you would come.'",
+      "dm_note": "Boss fight. Skrix: AC 14, HP 22, +5 to hit, 2d6+3 damage with a shortsword. He has the sending stone (a small glowing blue rock). He fights cleverly — uses goblins as shields, retreats to high ground. If reduced to 5 HP, he tries to flee.",
+      "suggested_actions": [
+        { "label": "Attack Skrix directly", "check": "Attack", "dc": 14, "success_scene": "scene_006", "failure_scene": "scene_005_combat", "success_bonus": "Your blow lands true. Skrix staggers, fury and something like fear crossing his face." },
+        { "label": "Try to negotiate with Skrix", "check": "Persuasion", "dc": 16, "success_scene": "scene_005_negotiate", "failure_scene": "scene_005_combat", "success_bonus": "Skrix pauses, his eyes calculating. 'You are... interesting softskin. Perhaps we talk.'" }
+      ],
+      "allow_custom": true
+    },
+    "scene_005_boss": {
+      "title": "Face to Face with Skrix",
+      "narrative": "Your tactics worked — the cave is quiet, goblins fled or neutralized. Skrix stands alone, the sending stone clutched in his fist, its blue light pulsing. He looks at you — and smiles. It's an unsettling smile. 'Clever softskins. Skrix is... impressed. But you should not have come here.'",
+      "dm_note": "Skrix alone: AC 14, HP 22. But give players a chance to negotiate first — Skrix is intelligent and might be convinced to give up the map in exchange for his life.",
+      "suggested_actions": [
+        { "label": "Demand Skrix surrender", "check": "Intimidation", "dc": 13, "success_scene": "scene_005_negotiate", "failure_scene": "scene_005_combat", "success_bonus": "Skrix's smile fades. He sets down the sending stone slowly. 'Perhaps... there is another way.'" },
+        { "label": "Attack", "check": "Attack", "dc": 14, "success_scene": "scene_006", "failure_scene": "scene_005_combat", "success_bonus": "The fight is swift. Skrix falls, the sending stone rolling from his hand." }
+      ],
+      "allow_custom": true
+    },
+    "scene_005_negotiate": {
+      "title": "Talking to Skrix",
+      "narrative": "Skrix lowers his weapon slowly. 'You want map. Skrix know this. But you should know — Skrix not the one who wants it most. Someone else. Someone who speaks through the stone.' He holds up the sending stone. 'They told Skrix to get the map. Said great reward. But...' he glances at his fallen goblins. 'Maybe this reward not worth it.'",
+      "dm_note": "A roleplaying moment. Skrix can become an unlikely ally or at least give information. He doesn't know who speaks through the stone — only that the voice is cold and promises gold. He'll give up the map if his life is spared.",
+      "suggested_actions": [
+        { "label": "Spare Skrix in exchange for the map and the sending stone", "requires_roll": false, "next_scene": "scene_006_peaceful" },
+        { "label": "Take the map by force", "check": "Attack", "dc": 14, "success_scene": "scene_006", "failure_scene": "scene_005_combat", "success_bonus": "Skrix fights back but is quickly overwhelmed." }
+      ],
+      "allow_custom": true
+    },
+    "scene_006": {
+      "title": "Victory",
+      "narrative": "Skrix falls. The cave goes silent except for the crackle of the fire. In his hand — or on the stone table — you find it: the sending stone, pulsing faintly blue. And tucked beneath a pile of stolen grain sacks, the map. The Mirewatch map. As your fingers touch it, the sending stone flickers. A voice issues from it — cold, smooth, androgynous. 'Skrix. Report. Do you have it?' Silence. Then: 'Skrix?' The light fades.",
+      "dm_note": "End on this mystery. Someone else wanted this map. The party has it now — and someone out there knows they exist. Perfect hook for a campaign or follow-up adventure.",
+      "suggested_actions": [
+        { "label": "Return to Millhaven with the map and the news", "requires_roll": false, "next_scene": "scene_007" }
+      ],
+      "allow_custom": true
+    },
+    "scene_006_peaceful": {
+      "title": "An Unlikely Deal",
+      "narrative": "Skrix hands over the map and the sending stone with a grunt of distaste. 'Skrix is... not finished with this world yet.' He eyes his fallen goblins. 'Go. Tell your village — Skrix does not raid them again. This promise.' He turns and walks deeper into the cave. As you leave, the sending stone flickers in your hand. A voice: cold, smooth, androgynous. 'Skrix. Report. Do you have it?' Silence. 'Skrix?' The light fades.",
+      "dm_note": "Skrix lives — potential future NPC. Mystery of the sending stone planted. The party achieved a peaceful resolution, which should be celebrated.",
+      "suggested_actions": [
+        { "label": "Return to Millhaven with the map and the news", "requires_roll": false, "next_scene": "scene_007" }
+      ],
+      "allow_custom": true
+    },
+    "scene_007": {
+      "title": "Return to Millhaven",
+      "narrative": "The village elder meets you at the gate, lantern in hand. His face cycles through relief, gratitude, and then — when he sees the map — something complicated. Guilt, perhaps. 'You found it,' he says quietly. 'I thought burying it would keep everyone safe. I was wrong.' He looks at your party. 'What will you do with it?'",
+      "dm_note": "Let players decide the fate of the map. Keep it and pursue the Mirewatch dungeon? Give it to the elder? Destroy it? All valid. Reward: 50 gold pieces each from the village, plus whatever they took from the cave. End of adventure.",
+      "suggested_actions": [
+        { "label": "Keep the map — you'll seek out Mirewatch yourselves", "requires_roll": false, "next_scene": "scene_end" },
+        { "label": "Give the map to the elder to keep safe", "requires_roll": false, "next_scene": "scene_end" },
+        { "label": "Destroy the map — some things should stay buried", "requires_roll": false, "next_scene": "scene_end" }
+      ],
+      "allow_custom": true
+    },
+    "scene_end": {
+      "title": "Adventure Complete",
+      "narrative": "The village of Millhaven is safe. The goblins are scattered. And somewhere in the Thornwood, a mystery lingers — a voice from a blue stone, a dungeon called Mirewatch, and a map that someone very much wanted. The adventure is over. But the story? The story is just beginning.",
+      "dm_note": "Congratulate the players! Award experience: 300 XP each for a standard run, up to 400 XP if they achieved a peaceful resolution with Skrix. The sending stone is a fun magic item to keep — it will occasionally receive cryptic messages.",
+      "suggested_actions": [],
+      "allow_custom": false,
+      "is_end": true
+    }
+  }
+}
