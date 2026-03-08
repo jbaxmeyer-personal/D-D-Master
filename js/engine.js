@@ -1,5 +1,5 @@
 /**
- * D&D Master — engine.js
+ * Game Master — engine.js
  * The core DM engine for game.html.
  *
  * Reads adventure/campaign JSON from URL params:
@@ -123,7 +123,7 @@
     state.totalScenes = Object.keys(data.scenes || {}).length;
 
     gameTitleDisplay.textContent = data.title;
-    document.title = `D&D Master — ${data.title}`;
+    document.title = `Game Master — ${data.title}`;
 
     // Check for saved progress
     const saved = loadProgress();
@@ -138,7 +138,7 @@
     const campaign = await fetchJSON(`campaigns/${state.id}/campaign.json`);
     state.campaignData = campaign;
 
-    document.title = `D&D Master — ${campaign.title}`;
+    document.title = `Game Master — ${campaign.title}`;
     gameTitleDisplay.textContent = campaign.title;
 
     // If a specific session was requested via URL, go there
@@ -612,9 +612,9 @@
   ══════════════════════════════════════════════════════════ */
   function saveKey() {
     if (state.type === 'campaign') {
-      return `dndmaster_campaign_${state.id}`;
+      return `gamemaster_campaign_${state.id}`;
     }
-    return `dndmaster_adventure_${state.id}`;
+    return `gamemaster_adventure_${state.id}`;
   }
 
   function saveProgress() {

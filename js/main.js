@@ -1,5 +1,5 @@
 /**
- * D&D Master — main.js
+ * Game Master — main.js
  * Handles index.html: loading and displaying adventures/campaigns
  * from manifest files, and navigating to game.html.
  */
@@ -234,7 +234,7 @@
   /* ── Save Progress Helpers ──────────────────────────────── */
   function hasSavedProgress(type, id) {
     try {
-      return !!localStorage.getItem(`dndmaster_${type}_${id}`);
+      return !!localStorage.getItem(`gamemaster_${type}_${id}`);
     } catch (e) {
       return false;
     }
@@ -242,7 +242,7 @@
 
   function clearSavedProgress(type, id) {
     try {
-      localStorage.removeItem(`dndmaster_${type}_${id}`);
+      localStorage.removeItem(`gamemaster_${type}_${id}`);
     } catch (e) {}
   }
 
