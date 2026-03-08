@@ -498,7 +498,7 @@
     if (success) {
       outcomeBox.classList.add('success');
       outcomeLabel.innerHTML = '&#10003; Success';
-      outcomeText.textContent = buildSuccessText(rollResult, skill);
+      outcomeText.textContent = buildSuccessText(skill);
 
       if (action.success_bonus) {
         outcomeBonus.textContent = action.success_bonus;
@@ -509,7 +509,7 @@
     } else {
       outcomeBox.classList.add('failure');
       outcomeLabel.innerHTML = '&#10007; Failure';
-      outcomeText.textContent = buildFailureText(rollResult, skill);
+      outcomeText.textContent = buildFailureText(skill);
       outcomeBonus.style.display = 'none';
     }
 
@@ -531,11 +531,11 @@
     outcomeBox.classList.remove('visible', 'success', 'failure');
   }
 
-  function buildSuccessText(roll, skill) {
+  function buildSuccessText(skill) {
     return `Your ${skill} check succeeds — well done.`;
   }
 
-  function buildFailureText(roll, skill) {
+  function buildFailureText(skill) {
     return `Your ${skill} check falls short. Things do not go as planned.`;
   }
 
