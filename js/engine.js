@@ -573,16 +573,11 @@
       };
       outcomeNextBtn.style.display = 'inline-block';
     } else if (state.isCustomAction) {
-      // Custom action: no predefined next scene — re-enable actions so players can continue
-      outcomeNextBtn.textContent = 'Continue';
+      // Custom action: no predefined next scene — re-render scene so players pick how to proceed
+      outcomeNextBtn.textContent = 'Continue Story →';
       outcomeNextBtn.onclick = () => {
         hideOutcome();
-        setActionsDisabled(false);
-        customActionInput.disabled = false;
-        customActionInput.value = '';
-        customActionSubmit.disabled = false;
-        state.selectedAction = null;
-        state.isCustomAction = false;
+        goToScene(state.currentSceneId);
       };
       outcomeNextBtn.style.display = 'inline-block';
     } else {
@@ -598,7 +593,7 @@
 
   function buildSuccessText(roll, dc, skill, action) {
     if (state.isCustomAction) {
-      return `You rolled a ${roll} against DC ${dc} — a success! The DM will narrate what happens next based on your action.`;
+      return `You rolled a ${roll} against DC ${dc} — a success! Your DM narrates the outcome, then pick the closest option below to continue the story.`;
     }
     const margin = roll - dc;
     if (margin >= 5) {
@@ -609,7 +604,7 @@
 
   function buildFailureText(roll, dc, skill, action) {
     if (state.isCustomAction) {
-      return `You rolled a ${roll} against DC ${dc} — not quite enough. The DM will describe how things go wrong, and the story continues.`;
+      return `You rolled a ${roll} against DC ${dc} — not quite enough. Your DM narrates what goes wrong, then pick the closest option below to continue.`;
     }
     const margin = dc - roll;
     if (margin >= 5) {
