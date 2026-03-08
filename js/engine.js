@@ -566,9 +566,23 @@
     }
 
     if (nextSceneId) {
+      outcomeNextBtn.textContent = 'Next Scene →';
       outcomeNextBtn.onclick = () => {
         hideOutcome();
         goToScene(nextSceneId);
+      };
+      outcomeNextBtn.style.display = 'inline-block';
+    } else if (state.isCustomAction) {
+      // Custom action: no predefined next scene — re-enable actions so players can continue
+      outcomeNextBtn.textContent = 'Continue';
+      outcomeNextBtn.onclick = () => {
+        hideOutcome();
+        setActionsDisabled(false);
+        customActionInput.disabled = false;
+        customActionInput.value = '';
+        customActionSubmit.disabled = false;
+        state.selectedAction = null;
+        state.isCustomAction = false;
       };
       outcomeNextBtn.style.display = 'inline-block';
     } else {
